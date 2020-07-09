@@ -1,22 +1,21 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Eligibilty.API.Models
 {
-    public class Beneficiary
+    public class Beneficiary : Entity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+
         public string Name { get; set; }
 
-        [BsonRepresentation(BsonType.String)]
         public Relationship Relationship { get; set; }
 
-        [BsonRepresentation(BsonType.String)]
         public Gender Gender { get; set; }
-
         public DateTimeOffset DateOfBirth { get; set; }
 
     }

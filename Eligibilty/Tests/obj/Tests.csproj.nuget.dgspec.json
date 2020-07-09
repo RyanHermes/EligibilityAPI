@@ -38,6 +38,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.3, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[15.0.5, )"
+            },
+            "CsvHelper.Excel": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[4.5.3.3, )"
@@ -119,6 +131,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.3, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[15.0.5, )"
+            },
+            "CsvHelper.Excel": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[2.1.0, )"

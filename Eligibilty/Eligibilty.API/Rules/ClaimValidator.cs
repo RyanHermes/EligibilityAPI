@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eligibilty.API.Rules
 {
-    public class ClaimValidator : AbstractValidator<Claim>
+    public class ClaimValidator : AbstractValidator<Claim>, IValidator
     {
         public ClaimValidator()
         {

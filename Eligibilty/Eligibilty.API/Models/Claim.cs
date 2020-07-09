@@ -4,7 +4,7 @@ using System;
 
 namespace Eligibilty.API.Models
 {
-    public class Claim
+    public class Claim : Entity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

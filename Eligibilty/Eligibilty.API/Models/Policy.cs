@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Eligibilty.API.Models
 {
-    public class Policy
+    public class Policy : Entity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

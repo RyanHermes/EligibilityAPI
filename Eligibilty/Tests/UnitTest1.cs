@@ -8,18 +8,17 @@ namespace Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void ParseTest()
+        public void GenerateExcelTest()
+        {
+            Spreadsheet spreadsheet = new Spreadsheet();
+            spreadsheet.GenerateFile(@"..\..\..\..\..\reports\test.xlsx");
+        }
+
+        [TestMethod]
+        public void ParseExcelTest()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
             spreadsheet.Parse(@"..\..\..\..\..\reports\test.xlsx");
         }
-
-        [TestMethod]
-        public void GenerateTest()
-        {
-            Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.GenerateFile();
-        }
-
     }
 }

@@ -1,47 +1,38 @@
-﻿using Eligibilty.API.Models;
+﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Eligibilty.API.Models;
 using Eligibilty.API.Rules;
 using Eligibilty.API.Utils;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Threading.Tasks;
+
 
 namespace Eligibilty.API.Reports
 {
     public class Spreadsheet
     {
-        private void AddWorksheet(ExcelPackage excel, string title, List<string[]> headerRow)
+        private void AddWorksheet(ExcelPackage excel, string title, List<string> headerRow)
         {
-            excel.Workbook.Worksheets.Add(title);
-            ExcelWorksheet worksheet = excel.Workbook.Worksheets[title];
-            int len = headerRow[0].Length;
-            var header = worksheet.Cells[1, 1, 1, len];
-
-            header.LoadFromArrays(headerRow);
-            header.Style.Font.Bold = true;
-            header.AutoFitColumns();
-
-            worksheet.Protection.IsProtected = true;
-            worksheet.Cells[2, 1, 1000, len].Style.Locked = false;
-            worksheet.Protection.AllowFormatColumns = true;
-
+            ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add(title);
+            worksheet.Cells.LoadFromText(String.Join(", ", headerRow));
         }
 
-        public void GenerateFile()
+        public void GenerateFile(string path)
         {
             ExcelPackage excel = new ExcelPackage();
 
-            AddWorksheet(excel, "Add Beneficiary", new List<string[]>() { new string[] { "Name", "Gender", "Relationship", "Date Of Birth" } });
-            AddWorksheet(excel, "Add Policy", new List<string[]>() { new string[] { "Effective Date", "ExpiryDate" } });
-            AddWorksheet(excel, "Add Claim", new List<string[]>() { new string[] { "Policy No", "Claimed Amount", "Incurred Date" } });
+            AddWorksheet(excel, "Beneficiary", new List<string>() { "Name", "Gender", "Relationship", "Date Of Birth" });
+            AddWorksheet(excel, "Policy", new List<string>() { "Policy No", "Effective Date", "ExpiryDate" });
+            AddWorksheet(excel, "Claim", new List<string>() { "Claim No", "Claimed Amount", "Incurred Date" });
 
-            FileInfo excelFile = new FileInfo(@"..\..\..\..\..\reports\test.xlsx");
+            FileInfo excelFile = new FileInfo(path);
             excel.SaveAs(excelFile);
         }
 
@@ -51,32 +42,37 @@ namespace Eligibilty.API.Reports
             FileInfo fileInfo = new FileInfo(path);
 
             ExcelPackage package = new ExcelPackage(fileInfo);
-            ExcelWorksheet worksheet = package.Workbook.Worksheets["Add Beneficiary"];
+            ExcelWorksheets worksheets = package.Workbook.Worksheets;
 
-            // get number of rows and columns in the sheet
-            int rows = worksheet.Dimension.Rows;
-            int cols = worksheet.Dimension.Columns;
-
-            // loop through the worksheet rows and columns
-            for (int i = 2; i <= rows; i++)
+            List<List<Entity>> lists = new List<List<Entity>>();
+            foreach (var worksheet in worksheets)
             {
-                Beneficiary beneficiary = null;
-                try
-                {
-                    beneficiary = new Beneficiary()
-                    {
-                        Name = worksheet.Cells[i, 1].Value.ToString(),
-                        Gender = worksheet.Cells[i, 2].Value.ToString().ParseGender(),
-                        Relationship = worksheet.Cells[i, 3].Value.ToString().ParseRelationship(),
-                        DateOfBirth = DateTimeOffset.Parse(worksheet.Cells[i, 4].Value.ToString())
-                    };
-                }
-                catch { }
+                // get number of rows and columns in the sheet
+                int rows = worksheet.Dimension.Rows;
 
-                if (beneficiary == null) continue;
-                Debug.WriteLine($"{beneficiary.Name} {beneficiary.Gender} {beneficiary.Relationship} {beneficiary.DateOfBirth}");
-                var validations = new BeneficiaryValidator();
-                var result = validations.Validate(beneficiary);
+                List<Entity> list = new List<Entity>();
+                // loop through the worksheet rows and columns
+                for (int i = 2; i <= rows; i++)
+                    list.Add(EntityFactory.Create(worksheet, i));
+
+                lists.Add(list);
+
+            }
+
+            ErrorHandling(worksheets, lists);
+            package.Save();
+        }
+
+        public void ErrorHandling(ExcelWorksheets worksheets, List<List<Entity>> lists)
+        {
+            for (int i = 0; i < lists.Count; i++)
+            {
+                ExcelWorksheet worksheet = worksheets[i + 1];
+                var validations = ValidatorFactory.Create(worksheet);
+                var list = lists[i];
+                var cols = list.Count;
+
+                var result = validations.Validate(list);
 
                 if (!result.IsValid)
                 {
@@ -88,23 +84,23 @@ namespace Eligibilty.API.Reports
                     foreach (var err in result.Errors)
                     {
                         Debug.WriteLine(err.PropertyName + ": " + err.ErrorMessage);
+
                         var invalidCell = worksheet.Cells[i, err.PropertyName.GetIndex()];
                         invalidCell.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         invalidCell.Style.Fill.BackgroundColor.SetColor(ColorTranslator.FromHtml("#ffc7ce"));
                         invalidCell.Style.Font.Color.SetColor(ColorTranslator.FromHtml("#be0006"));
+
                         worksheet.Cells[i, cols + 1].Value += $"{err.ErrorMessage} ";
                         worksheet.Cells[i, cols + 1].Style.Font.Color.SetColor(ColorTranslator.FromHtml("#be0006"));
 
                     }
                 }
-
             }
 
-            worksheet.Cells[1, 1, rows, cols + 1].AutoFitColumns();
-            package.Save();
+            
         }
 
     }
-
 }
+
 

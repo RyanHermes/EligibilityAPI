@@ -1,8 +1,10 @@
 ﻿using Eligibilty.API.Models;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Eligibilty.API.Utils
@@ -27,7 +29,16 @@ namespace Eligibilty.API.Utils
             {"Name", 1 },
             {"Gender", 2 },
             {"Relationship", 3 },
-            {"DateOfBirth", 4 }
+            {"DateOfBirth", 4 },
+
+            {"Id", 1 },
+            {"EffectiveDate", 2 },
+            {"ExpiryDate", 3 },
+
+
+            {"PolicyNo", 1 },
+            {"ClaimedAmount", 2 },
+            {"IncurredDate", 3 },
         };
 
         public static int GetCurrentAge(this DateTimeOffset dateTimeOffset)
@@ -53,6 +64,5 @@ namespace Eligibilty.API.Utils
         {
             return nameIndex[indexName];
         }
-
     }
 }
