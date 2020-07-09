@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Eligibilty.API.Rules
 {
-    public class BeneficiaryValidator : AbstractValidator<Beneficiary>, IValidator
+    public class BeneficiaryValidator : AbstractValidator<Beneficiary>
     {
         public BeneficiaryValidator()
         {

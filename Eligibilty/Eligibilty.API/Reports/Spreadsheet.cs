@@ -18,7 +18,7 @@ namespace Eligibilty.API.Reports
 {
     public class Spreadsheet
     {
-        private void AddWorksheet(ExcelPackage excel, string title, List<string> headerRow)
+        private void AddWorksheet(ExcelPackage  excel, string title, List<string> headerRow)
         {
             ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add(title);
             worksheet.Cells.LoadFromText(String.Join(", ", headerRow));
@@ -59,7 +59,7 @@ namespace Eligibilty.API.Reports
 
             }
 
-            ErrorHandling(worksheets, lists);
+            //ErrorHandling(worksheets, lists);
             package.Save();
         }
 
@@ -68,11 +68,10 @@ namespace Eligibilty.API.Reports
             for (int i = 0; i < lists.Count; i++)
             {
                 ExcelWorksheet worksheet = worksheets[i + 1];
-                var validations = ValidatorFactory.Create(worksheet);
                 var list = lists[i];
                 var cols = list.Count;
 
-                var result = validations.Validate(list);
+                //var result = ValidatorFactory.Validate(worksheet, list);
 
                 if (!result.IsValid)
                 {

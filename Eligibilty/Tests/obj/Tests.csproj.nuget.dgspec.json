@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj": {}
+    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
+    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
         "projectName": "Eligibilty.API",
-        "projectPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
-        "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,7 @@
           "dependencies": {
             "ClosedXML": {
               "target": "Package",
-              "version": "[0.95.3, )"
+              "version": "[0.87.1, )"
             },
             "CsvHelper": {
               "target": "Package",
@@ -93,17 +93,17 @@
         }
       }
     },
-    "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj": {
+    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj",
-        "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,8 +116,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
-                "projectPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj"
+              "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
+                "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj"
               }
             }
           }

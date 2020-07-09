@@ -2521,7 +2521,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "ClosedXML": "0.95.3",
+          "ClosedXML": "0.87.1",
           "CsvHelper": "15.0.5",
           "CsvHelper.Excel": "1.0.6",
           "EPPlus": "4.5.3.3",
@@ -8259,19 +8259,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elie.raad\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\Tests.csproj",
-      "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Tests\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8284,8 +8284,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
-              "projectPath": "C:\\Users\\elie.raad\\Desktop\\Insurance-Management\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj"
+            "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj"
             }
           }
         }

@@ -1,4 +1,5 @@
-﻿using Eligibilty.API.Rules;
+﻿using Eligibilty.API.Models;
+using Eligibilty.API.Rules;
 using FluentValidation;
 using OfficeOpenXml;
 using System;
@@ -10,22 +11,20 @@ namespace Eligibilty.API.Utils
 {
     public class ValidatorFactory
     {
-        public static Rules.IValidator Create(ExcelWorksheet worksheet)
+        public static void Validate(ExcelWorksheet worksheet, List<Entity> list)
         {
-            Rules.IValidator validator = null;
-            switch (worksheet.Name)
-            {
-                case "Beneficiary":
-                    validator = new BeneficiaryValidator();
-                    break;
-                case "Policy":
-                    validator = new PolicyValidator();
-                    break;
-                case "Claim":
-                    validator = new ClaimValidator();
-                    break;
+            if (worksheet.Name == "Beneficiary") {
+                var validator = new BeneficiaryValidator();
+                //validator.Validate(list);
             }
-            return validator;
+            if (worksheet.Name == "Policy") {
+                var validator = new PolicyValidator();
+            }
+            if (worksheet.Name == "Claim") { 
+                    var validator = new ClaimValidator();
+            }
+            }
+            //return validator;
         }
     }
 }
