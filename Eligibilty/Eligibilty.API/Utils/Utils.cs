@@ -26,7 +26,7 @@ namespace Eligibilty.API.Utils
 
         private static readonly Dictionary<string, int> nameIndex = new Dictionary<string, int>()
         {
-            {"Name", 1 },
+            {"Name", 1   },
             {"Gender", 2 },
             {"Relationship", 3 },
             {"DateOfBirth", 4 },

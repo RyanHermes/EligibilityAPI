@@ -11,14 +11,17 @@ namespace Tests
         public void GenerateExcelTest()
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.GenerateFile(@"..\..\..\..\..\reports\test.xlsx");
+            spreadsheet.GenerateFile(@"..\..\..\..\..\reports\test.xlsx", new ExcelSheet());
         }
 
         [TestMethod]
-        public void ParseExcelTest()
+        public void ParseExcelTest()    
         {
             Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.Parse(@"..\..\..\..\..\reports\test.xlsx");
+            var excel = spreadsheet.Parse(@"..\..\..\..\..\reports\test.xlsx");
+
+            spreadsheet.ErrorHandling(excel);
+            Assert.IsTrue(true);
         }
     }
 }

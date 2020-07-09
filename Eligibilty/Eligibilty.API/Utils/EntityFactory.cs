@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using Eligibilty.API.Models;
+﻿using Eligibilty.API.Models;
 using MongoDB.Bson;
 using OfficeOpenXml;
 using System;
@@ -34,12 +33,12 @@ namespace Eligibilty.API.Utils
                     };
                     break;
                 case "Policy":
-                    entity = new Policy()
-                    {
-                        Id = worksheet.Cells[row, 1].Value.ToString(),
-                        EffectiveDate = DateTimeOffset.Parse(worksheet.Cells[row, 2].Value.ToString()),
-                        ExpiryDate = DateTimeOffset.Parse(worksheet.Cells[row, 3].Value.ToString())
-                    };
+                    //entity = new Policy()
+                    //{
+                    //    Id = worksheet.Cells[row, 1].Value.ToString(),
+                    //    EffectiveDate = DateTimeOffset.Parse(worksheet.Cells[row, 2].Value.ToString()),
+                    //    ExpiryDate = DateTimeOffset.Parse(worksheet.Cells[row, 3].Value.ToString())
+                    //};
                     break;
             }
             return entity;

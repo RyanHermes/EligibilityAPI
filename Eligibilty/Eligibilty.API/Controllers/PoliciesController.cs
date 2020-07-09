@@ -28,18 +28,19 @@ namespace Eligibilty.API.Controllers
         [HttpGet("{id:length(24)}", Name = "GetPolicies")]
         public ActionResult<Policy> Get(string id)
         {
-            var policy = _policyService.Get(id);
-            if (policy is null) return NotFound();
-            return policy;
+            //var policy = _policyService.Get(id);
+            //if (policy is null) return NotFound();
+            //return policy;
+            return null;
         }
 
         [HttpGet("{id:length(24)}/beneficiaries")]
         public ActionResult<List<Beneficiary>> GetBeneficiariesForPolicy(string id)
         {
             var beneficiaries = new List<Beneficiary>();
-            var policy = _policyService.Get(id);
-            if (policy is null) return NotFound();
-            foreach (var beneficiary in policy.Beneficiaries) beneficiaries.Add(beneficiary);
+            //var policy = _policyService.Get(id);
+            //if (policy is null) return NotFound();
+            //foreach (var beneficiary in policy.Beneficiaries) beneficiaries.Add(beneficiary);
             return beneficiaries;
         }
 
@@ -56,7 +57,8 @@ namespace Eligibilty.API.Controllers
                 }
             }
             _policyService.Create(policy);
-            return CreatedAtRoute("GetPolicies", new { id = policy.Id }, policy);
+            //return CreatedAtRoute("GetPolicies", new { id = policy.Id }, policy);
+            return null;
         }
 
         [HttpPut("{id:length(24)}")]
@@ -71,18 +73,18 @@ namespace Eligibilty.API.Controllers
                     return BadRequest();
                 }
             }
-            var oldPolicy = _policyService.Get(id);
-            if (oldPolicy is null) return NotFound();
-            _policyService.Update(id, policy);
+            //var oldPolicy = _policyService.Get(id);
+            //if (oldPolicy is null) return NotFound();
+            //_policyService.Update(id, policy);
             return NoContent();
         }
 
         [HttpDelete("{id:length(24)}")]
         public ActionResult Delete(string id)
         {
-            var oldPolicy = _policyService.Get(id);
-            if (oldPolicy is null) return NotFound();
-            _policyService.Remove(oldPolicy.Id);
+            //var oldPolicy = _policyService.Get(id);
+            //if (oldPolicy is null) return NotFound();
+            //_policyService.Remove(oldPolicy.Id);
             return NoContent();
         }
     }

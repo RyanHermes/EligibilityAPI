@@ -75,3 +75,7 @@ C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netco
 C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\staticwebassets\Eligibilty.API.StaticWebAssets.Manifest.cache
 C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\staticwebassets\Eligibilty.API.StaticWebAssets.xml
 C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\Eligibilty.API.genruntimeconfig.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\Eligibilty.API.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\Eligibilty.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\obj\Debug\netcoreapp3.1\Eligibilty.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Eligibilty.API\bin\Debug\netcoreapp3.1\ClosedXML.dll

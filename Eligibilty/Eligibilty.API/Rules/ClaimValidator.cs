@@ -17,4 +17,12 @@ namespace Eligibilty.API.Rules
             RuleFor(claim => claim.IncurredDate).GreaterThan(DateTime.MinValue);
         }
     }
+
+    public class ExcelSheetValidator : AbstractValidator<ExcelSheet>
+    {
+        public ExcelSheetValidator()
+        {
+            RuleFor(excel => excel.Policies).ForEach(x => x.SetValidator(new PolicyValidator()));
+        }
+    }
 }

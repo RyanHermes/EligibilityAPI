@@ -11,10 +11,10 @@ namespace Eligibilty.API.Rules
     {
         public PolicyValidator()
         {
-            RuleFor(policy => policy.Id).Length(24);
-            RuleFor(policy => policy.EffectiveDate).GreaterThan(DateTimeOffset.UtcNow);
-            RuleFor(policy => policy.ExpiryDate).GreaterThan(DateTime.UtcNow);
-            RuleForEach(policy => policy.Beneficiaries).SetValidator(new BeneficiaryValidator());
+            RuleFor(policy => policy.Name).Length(24);
+            //RuleFor(policy => policy.EffectiveDate).GreaterThan(DateTimeOffset.UtcNow);
+            //RuleFor(policy => policy.ExpiryDate).GreaterThan(DateTime.UtcNow);
+            //RuleForEach(policy => policy.Beneficiaries).SetValidator(new BeneficiaryValidator());
         }
     }
 }

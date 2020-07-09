@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Eligibilty.API/1.0.0": {
         "dependencies": {
+          "ClosedXML": "0.87.1",
           "CsvHelper": "15.0.5",
           "CsvHelper.Excel": "1.0.6",
           "EPPlus": "4.5.3.3",
@@ -316,6 +317,17 @@
         },
         "compile": {
           "Eligibilty.API.dll": {}
+        }
+      },
+      "ClosedXML/0.87.1": {
+        "runtime": {
+          "lib/net40/ClosedXML.dll": {
+            "assemblyVersion": "0.87.0.0",
+            "fileVersion": "0.87.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/ClosedXML.dll": {}
         }
       },
       "CsvHelper/15.0.5": {
@@ -3282,6 +3294,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "ClosedXML/0.87.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2LC0T8bu2G2kt34C4Ig87uZfrRO4MwMVI54e2To7m3DvwAs2Z2Ir86WQuUoW8Txo1uNGSfmu3DpfpQhSX0bIww==",
+      "path": "closedxml/0.87.1",
+      "hashPath": "closedxml.0.87.1.nupkg.sha512"
     },
     "CsvHelper/15.0.5": {
       "type": "package",

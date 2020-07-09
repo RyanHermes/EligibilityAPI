@@ -17,18 +17,18 @@ namespace Eligibilty.API.Services
         }
 
         public List<Policy> Get() => _policies.Find(policy => true).ToList();
-        public Policy Get(string id) => _policies.Find(policy => policy.Id == id).FirstOrDefault();
+        //public Policy Get(string id) => _policies.Find(policy => policy.Id == id).FirstOrDefault();
         public Policy Create(Policy policy)
         {
             _policies.InsertOne(policy);
-            foreach(var beneficiary in policy.Beneficiaries)
-            {
-                beneficiary.Id = ObjectId.GenerateNewId().ToString();
-            }
+            //foreach(var beneficiary in policy.Beneficiaries)
+            //{
+            //    beneficiary.Id = ObjectId.GenerateNewId().ToString();
+            //}
             return policy;
         }
-        public void Update(string id, Policy policy) => _policies.ReplaceOne(oldpolicy => oldpolicy.Id == id, policy);
-        public void Remove(string id) => _policies.DeleteOne(policy => policy.Id == id);
-        public void Remove(Policy policy) => _policies.DeleteOne(oldPolicy => oldPolicy.Id == policy.Id);
+        //public void Update(string id, Policy policy) => _policies.ReplaceOne(oldpolicy => oldpolicy.Id == id, policy);
+        //public void Remove(string id) => _policies.DeleteOne(policy => policy.Id == id);
+        //public void Remove(Policy policy) => _policies.DeleteOne(oldPolicy => oldPolicy.Id == policy.Id);
     }
 }
