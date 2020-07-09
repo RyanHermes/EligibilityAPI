@@ -1,31 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {}
+    "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
+    "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
-        "projectName": "Eligibilty.API",
-        "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\obj\\",
+        "projectUniqueName": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
+        "projectName": "Parsing",
+        "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
+        "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -36,39 +36,21 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "netstandard2.0": {
           "dependencies": {
-            "ClosedXML": {
-              "target": "Package",
-              "version": "[0.87.1, )"
-            },
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[15.0.5, )"
-            },
-            "CsvHelper.Excel": {
-              "target": "Package",
-              "version": "[1.0.6, )"
-            },
             "EPPlus": {
               "target": "Package",
               "version": "[4.5.3.3, )"
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[8.6.2, )"
+              "version": "[9.0.0, )"
             },
-            "FluentValidation.AspNetCore": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.6.2, )"
-            },
-            "Microsoft.Extensions.Options": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.10.4, )"
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
           "imports": [
@@ -81,29 +63,21 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {
+    "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
+        "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,8 +90,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj": {
-                "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj"
+              "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj": {
+                "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj"
               }
             }
           }
@@ -131,18 +105,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "ClosedXML": {
-              "target": "Package",
-              "version": "[0.95.3, )"
-            },
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[15.0.5, )"
-            },
-            "CsvHelper.Excel": {
-              "target": "Package",
-              "version": "[1.0.6, )"
-            },
             "MSTest.TestAdapter": {
               "target": "Package",
               "version": "[2.1.0, )"
@@ -171,9 +133,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

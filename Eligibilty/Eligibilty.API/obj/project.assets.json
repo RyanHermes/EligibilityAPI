@@ -7272,19 +7272,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\elie.raad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
+      "projectUniqueName": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
       "projectName": "Eligibilty.API",
-      "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\obj\\",
+      "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\Eligibilty.API.csproj",
+      "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Eligibilty.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
