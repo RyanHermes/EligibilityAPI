@@ -11,16 +11,24 @@ namespace Tests
         [TestMethod]
         public void GenerateSheetTest()
         {
-            Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.GenerateFile(@"..\..\..\..\..\reports\test.xlsx");
-            Assert.IsTrue(true);
+            Spreadsheet spreadsheet = new Spreadsheet(@"..\..\..\..\..\reports\test.xlsx");
+            spreadsheet.GenerateFile();
         }
 
         [TestMethod]
-        public void ParseSheetTest()
+        public void ValidateStructTest()
         {
-            Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.Parse(@"..\..\..\..\..\reports\test.xlsx");
+            Spreadsheet spreadsheet = new Spreadsheet(@"..\..\..\..\..\reports\test.xlsx");
+            spreadsheet.ValidateStructure();
+        }
+
+        [TestMethod]
+        public void ValidateDataTest()
+        {
+            Spreadsheet spreadsheet = new Spreadsheet(@"..\..\..\..\..\reports\test.xlsx");
+            spreadsheet.ValidateStructure();
+            spreadsheet.ParseFile();
+            spreadsheet.ValidateData();
         }
     }
 }

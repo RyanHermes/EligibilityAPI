@@ -4669,19 +4669,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elie.raad\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
       "projectName": "Parsing",
-      "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
-      "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

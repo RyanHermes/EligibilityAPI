@@ -8,5 +8,7 @@ namespace Eligibilty.API.Models
         public string PolicyNo { get; set; }
         public double ClaimedAmount { get; set; }
         public DateTime IncurredDate { get; set; }
+        public string RowIdentifier { get; set; }
+
     }
 }

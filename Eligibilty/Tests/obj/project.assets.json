@@ -6968,19 +6968,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elie.raad\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
-      "packagesPath": "C:\\Users\\elie.raad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\elie.raad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6993,8 +6993,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj": {
-              "projectPath": "C:\\Users\\elie.raad\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj"
+            "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\EligibilityAPI\\Eligibilty\\Parsing\\Parsing.csproj"
             }
           }
         }

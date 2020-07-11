@@ -8,5 +8,7 @@ namespace Eligibilty.API.Models
         public string Id { get; set; }
         public DateTime EffectiveDate { get; set; }
         public DateTime ExpiryDate { get; set; }
+        public string RowIdentifier { get; set; }
+
     }
 }

@@ -15,38 +15,43 @@ namespace Eligibilty.API.Reports
 {
     public class Spreadsheet
     {
-        public Dictionary<string, int> Mappings { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, int> Mappings { get; set; }
+        private readonly ExcelPackage package;
+        private readonly ExcelSheet excelSheet;
+        private readonly FileInfo fileInfo;
 
-        public void GenerateFile(string path)
+        public Spreadsheet(string path)
         {
-            ExcelPackage excel = new ExcelPackage();
+            Mappings = new Dictionary<string, int>();
 
-            var properties = typeof(ExcelSheet).GetProperties();
-            foreach (var property in properties)
-            {
-                Type type = property.PropertyType;
-                if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>)) type = type.GetGenericArguments()[0];
-                string headers = String.Join(",", type.GetProperties().Select(x => x.Name));
-                ExcelWorksheet worksheet = excel.Workbook.Worksheets.Add(property.Name);
-                worksheet.Cells.LoadFromText(headers);
-            }
+            fileInfo = new FileInfo(path);
+            package = new ExcelPackage(fileInfo);
 
-            FileInfo excelFile = new FileInfo(path);
-            excel.SaveAs(excelFile);
+            excelSheet = new ExcelSheet();
+
         }
 
-        public ExcelSheet Parse(String path)
+        private ExcelWorksheet AddWorksheet(PropertyInfo property)
         {
-            // path to your excel file
-            FileInfo fileInfo = new FileInfo(path);
+            Type type = property.PropertyType;
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>)) type = type.GetGenericArguments()[0];
+            string headers = String.Join(",", type.GetProperties().Where(x => x.Name != "RowIdentifier").Select(x => x.Name));
+            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(property.Name);
+            worksheet.Cells.LoadFromText(headers);
+            return worksheet;
+        }
 
-            ExcelPackage package = new ExcelPackage(fileInfo);
+        public void GenerateFile()
+        {
+            var properties = typeof(ExcelSheet).GetProperties();
+            foreach (var property in properties) AddWorksheet(property);
+            package.SaveAs(fileInfo);
+        }
 
+        public ExcelSheet ParseFile()
+        {
             ExcelWorksheets worksheets = package.Workbook.Worksheets;
 
-            ValidateStruct(worksheets);
-
-            ExcelSheet excelSheet = new ExcelSheet();
             for (int i = 0; i < worksheets.Count; i++)
             {
                 string sheetName = worksheets[i].Name;
@@ -65,14 +70,13 @@ namespace Eligibilty.API.Reports
                 }
             }
 
-            ErrorHandling(package, excelSheet);
             return excelSheet;
         }
 
-        public void ErrorHandling(ExcelPackage package, ExcelSheet excel)
+        public void ValidateData()
         {
             ExcelSheetValidator validationRules = new ExcelSheetValidator();
-            var result = validationRules.Validate(excel);
+            var result = validationRules.Validate(excelSheet);
 
             if (!result.IsValid)
             {
@@ -88,54 +92,92 @@ namespace Eligibilty.API.Reports
                     int col = Mappings[$"{sheetname}{colHeader}"];
 
                     var worksheet = package.Workbook.Worksheets[sheetname];
-                    var invalidCell = worksheet.Cells[row, col];
-                    invalidCell.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    invalidCell.Style.Fill.BackgroundColor.SetColor(ColorTranslator.FromHtml("#ffc7ce"));
-                    invalidCell.Style.Font.Color.SetColor(ColorTranslator.FromHtml("#be0006"));
-
+                    worksheet.Cells[row, col].Invalid();
+                    
                     int cols = worksheet.Dimension.Columns;
-                    worksheet.Cells[row, cols + 1].Value += $"{err.ErrorMessage} ";
-                    worksheet.Cells[row, cols + 1].Style.Font.Color.SetColor(ColorTranslator.FromHtml("#be0006"));
+
+                    worksheet.Cells[row, cols + 1].Value += $"{err.ErrorMessage}{Environment.NewLine}";
+                    worksheet.Cells[row, cols].Style.Font.Color.SetColor(ColorTranslator.FromHtml("#be0006"));
                 }
 
-                FileInfo excelFile = new FileInfo(@"..\..\..\..\..\reports\test.xlsx");
-                package.SaveAs(excelFile);
+                package.SaveAs(fileInfo);
 
             }
         }
 
-        public bool ValidateStruct(ExcelWorksheets worksheets)
+        public void ValidateStructure()
         {
-            var properties = typeof(ExcelSheet).GetProperties().Select(x => x.Name);
-            var sheestName = worksheets.Select(x => x.Name);
-            if (!Enumerable.SequenceEqual(properties, sheestName)) return false;
+            var worksheets = package.Workbook.Worksheets;
+            var requiredSheetNames = typeof(ExcelSheet).GetProperties().Select(x => x.Name);
+            var providedSheetNames = worksheets.Select(x => x.Name);
+
+            var missingSheets = requiredSheetNames.Except(providedSheetNames).ToList();
+
+            foreach (var missingSheet in missingSheets)
+            {
+                var worksheet = AddWorksheet(typeof(ExcelSheet).GetProperty(missingSheet));
+                int cols = worksheet.Dimension.Columns;
+                worksheet.Cells[1, 1, 1, cols].Invalid();
+                worksheet.TabColor = ColorTranslator.FromHtml("#ffc7ce");
+            }
+
 
             foreach (var sheet in worksheets)
             {
-                var prop = typeof(ExcelSheet).GetProperty(sheet.Name);
-                Type type = prop.PropertyType;
-                if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>)) type = type.GetGenericArguments()[0];
-                var props = type.GetProperties().Select(x => x.Name);
+                var sheetProperty = typeof(ExcelSheet).GetProperty(sheet.Name);
 
-                var header = new List<string>();
+                if (sheetProperty == null)
+                {
+                    sheet.TabColor = ColorTranslator.FromHtml("#ffc7ce");
+                    continue;
+                }
+
+                Type sheetType = sheetProperty.PropertyType;
+                if (sheetType.IsGenericType && sheetType.GetGenericTypeDefinition() == typeof(List<>)) sheetType = sheetType.GetGenericArguments()[0];
+                
+                var requiredSheetHeader = sheetType.GetProperties().Where(x => x.Name != "RowIdentifier").Select(x => x.Name);
+
+                var providedSheetHeader = new List<string>();
+
                 for (int i = 1; i <= sheet.Dimension.Columns; i++)
                 {
-                    string val = sheet.Cells[1, i].Value.ToString();
-                    header.Add(val);
-                    Mappings.Add($"{sheet.Name}.{val}", i);
+                    var value = sheet.Cells[1, i].Value;
+                    if (value == null)
+                    {
+                        sheet.Cells[1, i].Invalid();
+                        continue;
+                    }
+
+                    providedSheetHeader.Add(value.ToString());
+                    Mappings.Add($"{sheet.Name}.{value}", i);
                 }
-                if (!Enumerable.SequenceEqual(props, header)) return false;
+
+                var missingHeaders = requiredSheetHeader.Except(providedSheetHeader).ToList();
+
+                foreach (var missingHeader in missingHeaders)
+                {
+                    var cell = sheet.Cells[1, sheet.Dimension.Columns + 1];
+                    cell.Value = missingHeader;
+                    cell.Invalid();
+                }
+
+
+                var hashSet = new HashSet<string>(requiredSheetHeader);
+                for (int i = 0; i < providedSheetHeader.Count; i++) if (!hashSet.Contains(providedSheetHeader[i])) sheet.Cells[1, i + 1].Invalid();
 
             }
 
-            return true;
+            EPPLusExtensions.Mappings = Mappings;
+            package.SaveAs(fileInfo);
         }
-
     }
 
 
-
 }
+
+
+
+
 
 
 

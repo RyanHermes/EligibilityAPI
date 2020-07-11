@@ -7,3 +7,12 @@ C:\Users\elie.raad\Documents\EligibilityAPI\Eligibilty\Parsing\bin\Debug\netstan
 C:\Users\elie.raad\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.dll
 C:\Users\elie.raad\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.pdb
 C:\Users\elie.raad\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\bin\Debug\netstandard2.0\Parsing.deps.json
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\bin\Debug\netstandard2.0\Parsing.dll
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\bin\Debug\netstandard2.0\Parsing.pdb
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.csprojAssemblyReference.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.AssemblyInfoInputs.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.AssemblyInfo.cs
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.dll
+C:\Users\user\Documents\EligibilityAPI\Eligibilty\Parsing\obj\Debug\netstandard2.0\Parsing.pdb
